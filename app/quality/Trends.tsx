@@ -1,3 +1,4 @@
+import { WATCH_RATE, HIGH_RATE } from "./config";
 type Rec = {
   id: number;
   created_at: string;
@@ -13,8 +14,7 @@ type Rec = {
 const BOX_TYPES = ["Gable Handle Box", "Takeaway Meal Box", "Hexagon Box"];
 
 // Change these to your real acceptable defect rates (in percent)
-const WATCH_RATE = 2;
-const HIGH_RATE = 5;
+
 
 const MIN_BATCHES = 4; // batches needed before forecasting
 const LAST_N = 12; // batches shown on each chart

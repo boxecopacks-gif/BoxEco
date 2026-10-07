@@ -4,6 +4,7 @@ import { useEffect, useState, FormEvent } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
 import Trends from "./Trends";
+import { WATCH_RATE, HIGH_RATE } from "./config";
 
 type Inspection = {
   id: number;
@@ -33,8 +34,8 @@ function totalDefects(r: Inspection) {
 }
 
 function riskLevel(rate: number) {
-  if (rate >= 5) return { label: "High risk", color: "bg-red-100 text-red-800" };
-  if (rate >= 2) return { label: "Watch", color: "bg-amber-100 text-amber-800" };
+  if (rate >= HIGH_RATE) return { label: "High risk", color: "bg-red-100 text-red-800" };
+  if (rate >= WATCH_RATE) return { label: "Watch", color: "bg-amber-100 text-amber-800" };
   return { label: "Good", color: "bg-green-100 text-green-800" };
 }
 
