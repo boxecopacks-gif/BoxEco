@@ -56,12 +56,12 @@ function Spark({ values }: { values: number[] }) {
   const y = (v: number) => h - pad - (v / max) * (h - 2 * pad);
   const pts = values.map((v, i) => `${x(i)},${y(v)}`).join(" ");
   return (
-    <svg viewBox={`0 0 ${w} ${h}`} className="mt-3 h-20 w-full">
+    <svg viewBox={`0 0 ${w} ${h}`} className="mt-3 h-20 w-full text-green-800">
       <line x1="0" x2={w} y1={y(WATCH_RATE)} y2={y(WATCH_RATE)} stroke="#d97706" strokeDasharray="3 3" strokeWidth="1" />
       <line x1="0" x2={w} y1={y(HIGH_RATE)} y2={y(HIGH_RATE)} stroke="#dc2626" strokeDasharray="3 3" strokeWidth="1" />
-      <polyline points={pts} fill="none" stroke="#166534" strokeWidth="2" />
+      <polyline points={pts} fill="none" stroke="currentColor" strokeWidth="2" />
       {values.map((v, i) => (
-        <circle key={i} cx={x(i)} cy={y(v)} r="2.5" fill="#166534" />
+        <circle key={i} cx={x(i)} cy={y(v)} r="2.5" fill="currentColor" />
       ))}
     </svg>
   );

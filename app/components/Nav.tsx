@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   const links = [
@@ -16,6 +17,7 @@ export default function Nav() {
           {l.label}
         </Link>
       ))}
+      <ThemeToggle />
     </nav>
   );
 }
