@@ -1,69 +1,109 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const sections = [
+  {
+    href: "/products",
+    title: "Our Products",
+    text: "Gable handle boxes, takeaway meal boxes and hexagon boxes, with sizes and features.",
+  },
+  {
+    href: "/folding",
+    title: "Folding Guide",
+    text: "Step-by-step assembly for every box. No glue or tape needed.",
+  },
+  {
+    href: "/customer-handling",
+    title: "Customer Handling",
+    text: "What to say, and what to avoid, in common customer situations.",
+  },
+];
+
+// Change your contact details here
+const CONTACT = {
+  email: "boxecopacks@gmail.com",
+  phones: [
+    { display: "+91 8589895174", link: "+91 8589895174" },
+    { display: "+91 7025798349", link: "+91 7025798349" },
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <section className="bg-green-50 px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-green-800">
+            Eco-friendly food packaging
           </p>
+          <h1 className="mt-3 text-4xl font-bold text-green-900 sm:text-5xl">
+            Packaging that folds in seconds and holds up on delivery
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg text-gray-700">
+            Learn our boxes, assemble them correctly, and look after every
+            customer with confidence.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/products"
+              className="rounded-lg bg-green-800 px-6 py-3 font-semibold text-white hover:bg-green-900"
+            >
+              See our products
+            </Link>
+            <Link
+              href="/folding"
+              className="rounded-lg border border-green-800 px-6 py-3 font-semibold text-green-900 hover:bg-green-100"
+            >
+              How to fold a box
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 py-14">
+        <div className="grid gap-6 sm:grid-cols-3">
+          {sections.map((s) => (
+            <Link
+              key={s.href}
+              href={s.href}
+              className="rounded-xl border p-6 hover:shadow-md"
+            >
+              <h2 className="text-xl font-semibold text-green-900">{s.title}</h2>
+              <p className="mt-2 text-gray-600">{s.text}</p>
+            </Link>
+          ))}
         </div>
-      </main>
-    </div>
+
+        <div className="mt-10 rounded-xl border bg-gray-50 p-6">
+          <h2 className="text-lg font-semibold">For BoxEco staff</h2>
+          <p className="mt-1 text-gray-600">
+            Log inspection results and check batch quality trends.
+          </p>
+          <Link
+            href="/quality"
+            className="mt-4 inline-block font-semibold text-green-800 underline"
+          >
+            Open the quality dashboard
+          </Link>
+        </div>
+      </section>
+
+      <footer className="border-t px-6 py-8 text-center text-sm text-gray-600">
+        <p className="font-semibold text-gray-800">BoxEco</p>
+        <p className="mt-2">
+          Email:{" "}
+          <a href={`mailto:${CONTACT.email}`} className="underline">
+            {CONTACT.email}
+          </a>
+        </p>
+        {CONTACT.phones.map((p) => (
+          <p key={p.link} className="mt-1">
+            Phone:{" "}
+            <a href={`tel:${p.link}`} className="underline">
+              {p.display}
+            </a>
+          </p>
+        ))}
+      </footer>
+    </main>
   );
 }
