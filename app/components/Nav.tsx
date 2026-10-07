@@ -6,6 +6,7 @@ export default function Nav() {
     { href: "/products", label: "Products" },
     { href: "/folding", label: "Folding Guide" },
     { href: "/customer-handling", label: "Customer Handling" },
+    { href: "/quality", label: "Quality" },
   ];
   return (
     <nav className="flex flex-wrap items-center gap-6 bg-green-800 px-6 py-4 text-white">
