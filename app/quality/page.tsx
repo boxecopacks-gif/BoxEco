@@ -3,6 +3,7 @@
 import { useEffect, useState, FormEvent } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
+import Trends from "./Trends";
 
 type Inspection = {
   id: number;
@@ -223,7 +224,7 @@ function Dashboard({ session }: { session: Session }) {
         })}
       </div>
 
-      <h2 className="mt-12 text-xl font-semibold">Add inspection result</h2>
+      <Trends records={records} />
       <form onSubmit={handleSubmit} className="mt-4 space-y-4 rounded-xl border p-5">
         <div className="grid gap-4 sm:grid-cols-3">
           <label className="text-sm">
